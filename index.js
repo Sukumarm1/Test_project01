@@ -507,3 +507,92 @@ function update(cart){
 update(cartObj);
 
 console.log(cartObj);
+
+
+ // ----------------------------------Enumerating Properties of an Object --------------------------------------------\\
+
+ const user = {
+    name : "King Harld",
+    getFullName() {
+        console.log(`My Name is ${this.name}`);
+    }
+ }
+
+ for(let key in user)
+ console.log(key  , user[key]);
+
+ for(let key of Object.keys(user))
+ console.log(key);
+
+ 
+ for(let key of Object.entries(user))
+ console.log(key);
+
+ if ('name' in user) console.log('YES !!!');
+
+
+  // ----------------------------------Cloning a JS Object --------------------------------------------\\
+
+  const user1 = {
+    name :'Torvi',
+    getFullName(){
+        console.log(`My Name is ${this.name}`);
+    }
+  }
+
+  let another = {};
+
+  //One - way :
+  for (let key in user1) another[key] = user1[key]
+  console.log(another);
+
+    //Second - way :
+    let another1 = Object.assign({age:24}, user1); console.log(another1);
+
+      //Third - way : --> IMPORTANT (Spread Operator)
+
+      let another2 = {...user1}; console.log( another2);
+
+      
+  // ----------------------------------Garbage Collection --------------------------------------------\\
+
+  /* 
+  
+  i) In JS, Garbage collection is totally FREED because JS Engine take care of Garbage collectors.
+
+  ii) In low -level language Java, C++ ..etc we've to maintain the garbage Collectors
+
+  iii) But here we don't need Automatically it will clean 
+
+  */
+
+      
+  // ---------------------------------- Math Object --------------------------------------------\\
+
+
+//   Reference for math object = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+  let marks = [25,63,84,59,95];
+
+//   let result = Math.max(marks) //--> it won't work because of Array [It return - NaN-> Not a Number]
+  
+// --- So, we are going to use SPREAD OPERATOR here.,
+
+let result = Math.max(...marks) 
+
+console.log("Maximum MArk : " + result);
+
+
+     
+  // ---------------------------------- String Object --------------------------------------------\\
+
+  //-- Primitive types
+
+  let firstName = "Bjorn";           // typeof -> String
+  let middleName = 'Ragnar';          // typeof -> String
+  let lastName =`Larthbrok`;          // typeof -> String
+
+  const name10 = new String("Floki");  //typeof -> Object
+
+
+  // Reference = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
