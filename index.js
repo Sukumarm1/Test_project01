@@ -447,3 +447,7 @@ console.log(name , age1, isAlive);
 
           Person.call({}, "Ragnar"); // Here, {} -> Whole Object (Above Code)
           Person.apply({}, [ "Ragnar"])
+
+
+          
+  // ---------------------------------------------    --------------------------------------------\\
