@@ -450,4 +450,60 @@ console.log(name , age1, isAlive);
 
 
           
-  // ---------------------------------------------    --------------------------------------------\\
+  // -----------------------------------Primitive value types VS reference types   --------------------------------------------\\
+
+  // ---------------------------Primitive types--------------------------- :
+
+let xxx = 10;  //return - 10
+let yyy = xxx;  // return - 10  
+
+xxx =20;
+
+
+/*
+Both xxx and yyy variables are independent
+
+It doesn't care what you do with x variables
+*/
+
+
+//  Example :
+
+let cart =10;
+
+function updateCart(cart){
+    cart++;
+}
+updateCart(cart);
+console.log("Carts available : " + cart);  //---> Because it is primitive type it won't add the value.
+
+
+// ---------------------- Reference type ---------------------------------:
+
+let ii = {
+    value :10    //return -20
+};
+
+let jj = ii;  //return -20
+
+ii.value = 20;
+
+/*
+let ii = {value : 10} ; --> It will create one reference memory #1526
+
+let y = reference memory #1526 ==>> { value :10 };
+*/
+
+//Example :
+
+let cartObj ={
+    value :20
+};
+
+function update(cart){
+    cart.value++;
+}
+
+update(cartObj);
+
+console.log(cartObj);
