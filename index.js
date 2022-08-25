@@ -907,3 +907,72 @@ let affortablePhonesFindINDex = cartItems.findIndex((value) => value.cost >= 100
 console.log(affortablePhonesFind); 
 
 console.log(affortablePhonesFindINDex);
+
+
+
+ // ----------------------------------   JS Array - Map --------------------------------------------\\
+
+const number07 =[1,2,5,6,1,4,2,5]   //--Example - 1
+
+let final = number07.map(val => val *2)
+
+console.log(final);
+
+
+
+//--Example - 1
+
+const lorthbrok = [
+    {id:001, firstName:"Bjorn Ironside", lastName:"Lorthbrok"},
+    {id:002, firstName:"Ubbe", lastName:"Lorthbrok"},
+    {id:003, firstName:"Hvitserk", lastName:"Lorthbrok"},
+    {id:004, firstName:"Ivar", lastName:"Lorthbrok"},
+]
+
+// let final1= lorthbrok.map(val => val.firstName +" "+ val.lastName)
+
+// let final2 =lorthbrok.map(val => [val.firstName, val.lastName].join(" "))
+
+let final3 = lorthbrok.map(function(val){
+    let fullName1 =[val.firstName, val.lastName].join(" ");
+    let obj = {id: val.id, fullName1}
+    return obj;
+} )
+
+console.log(final3);
+
+
+
+ // ---------------------------------- JS Array - Chaining Methods --------------------------------------------\\
+
+ const products =[
+    {id:001, items:"TV", purchasedIn:"Amazon", cost:25630},
+    {id:002, items:"AC", purchasedIn:"Flipkart", cost:20630},
+    {id:003, items:"Dress", purchasedIn:"Myntra",cost: 10000},
+    {id:004, items:"Shoe", purchasedIn:"Ajio",cost:5500},
+ ]
+
+ /*
+i) Sort it using lowest price
+
+ii) Sort it by items ascending
+
+iii) Filter product less than 20000
+
+iv) map it like this : //cost - 10000
+ */
+
+let final4 = products.sort((a,b)=> {
+    return a.cost -b.cost
+})
+.sort((a,b)=>{
+    if(a.items < b.items) return -1
+
+    if(a.items > b.items) return 1
+
+    return 1
+  })
+  .filter((val)=> val.cost <= 20000)
+  .map((val) => val.items+ " " + val.cost);
+
+  console.log(final4);
