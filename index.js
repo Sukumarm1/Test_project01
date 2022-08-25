@@ -596,3 +596,314 @@ console.log("Maximum MArk : " + result);
 
 
   // Reference = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+
+
+   // ---------------------------------- Template  Literals --------------------------------------------\\
+
+   const name09 = 'Ketill Flatnose' 
+
+   const message09 = `Thank You !!! ${name09},
+   
+   Watching the video. Its Great to see you
+
+   With Kadhol,
+   Ragnar`;
+
+   console.log(message09);
+
+ // ---------------------------------- Date Object --------------------------------------------\\
+
+     //-- DATE
+
+     const date = Date();
+
+     console.log(date);  //Here, it will return as a String(For confirm typeof date)
+
+     const date1 = new Date();
+
+     console.log(date1);   //Here, it will return as a Object (For confirm typeof date1)
+
+       // Reference = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+
+ // ----------------------------------   JS Array --------------------------------------------\\
+
+ const empName = ["Ragnar", "Floki" ,"Bjorn", "Hvitserk"]
+
+
+
+ empName.push("Torvi..")  // ADD at last index  
+
+empName.unshift("Lagertha") // ADD at Starting index
+
+empName.splice(5,0,"Erik")  // ADD at mid using index value
+
+
+console.log(empName);
+
+// -- Primitive value
+console.log(empName.indexOf("Floki"));
+
+console.log(empName.lastIndexOf("Hvitserk"));
+
+console.log(empName.indexOf("Floki") !== -1);
+
+console.log(empName.includes("Ragnar"));
+
+//--Reference value
+
+const orders = [
+    {id:001, item:"iphone", quantity: 10},
+    {id:002, item:"android", quantity: 9},
+    {id:003, item:"windows", quantity: 5},
+]
+
+// let result11 = orders.find(function(order){
+//     return order.item === "iphone"
+// })
+
+let result11 = orders.findIndex(function(order){
+    return order.item === "iphone"
+})
+
+console.log(result11);
+
+
+//-- Arrow Function
+
+let result10 = orders.find((order) =>order.item === "android")
+
+console.log(result10);
+
+//-- Removing element in Array
+
+const number10 =[10,23,15,26,65]
+
+number10.pop()     //Remove the last element
+
+number10.shift()     //Remove the first element
+
+number10.splice(0,1)  //Remove  the 0-index and 1-element
+
+console.log(number10); 
+
+
+//-- Emptying an JS Array
+
+let number09 =[20,25,63,1,2,3,5,1]
+
+//Solution-1
+
+number09 = []    // Right way to use in large data's and project
+
+//Solution-2
+
+// number09.length =0    // Right way to use in large data's and project
+
+//Solution-3
+
+// number09.splice(0, number09.length)    //it is not recommend for projects
+
+//Solution-4
+
+// while(number09.length) number09.pop(); //it is not recommend for projects
+
+// console.log(number09);
+
+
+//-- Combining and Extracting elements in JS Array
+
+const shopping_Chart =["Shirt", "T-Shirt", "Shoe","Watch"]  //Primitive way
+
+const shopping_Chart1 =[{ 
+    item : "New Arrivals - Shirt (Peter England)"      //Reference type because object is used 
+}]  
+
+shopping_Chart1[0].item ="New Arrivals - Shirt (Basics)" // Changing the value using index value
+
+const additional_Chart =["Fant","Shocks"]
+
+let combine = shopping_Chart.concat(additional_Chart)
+
+let extract = combine.slice(1,3)
+
+console.log(combine);
+console.log(extract);
+console.log(shopping_Chart1)
+
+
+//--Spread operators in JS Array
+
+const amazonShoppingChart =["Shirt", "T-Shirt", "Shoe","Watch"]
+
+const flipkartShoppingChart =["Fant","Shocks"]
+
+let buy =[...amazonShoppingChart, 50, {name: "Ragnar Lothbrok"},...flipkartShoppingChart]
+console.log(buy);
+
+
+//-- Iterating element in JS Array
+
+const vikings = ["Ragnar","Lagertha","Gunnihid"]
+
+//for-of
+for(let people of vikings){
+    console.log(people);
+}
+
+//for-in
+for(let people in vikings){
+    console.log(people, vikings[people]);
+}
+
+//for-each
+
+// vikings.forEach(function(people){
+// console.log(people);
+// });
+
+// vikings.forEach(function(people, PeopleIndex){
+// console.log(people,PeopleIndex);
+// });
+
+vikings.forEach(people => console.log(people))
+
+
+//--Joining & Splitting in JS Array
+
+const dailyRoutine =["Wake up","Eat","Read", "Sleep"]
+
+let print =dailyRoutine.join(" ")
+console.log(print);
+
+let fullName ="Ivar The Boneless"
+let userName = fullName.split(" ")
+
+let firstName1 = userName[0];
+let middleName1 = userName[1];
+let lastName1 = userName[2];
+
+console.log(`My First name is ${firstName1}
+_ Middle name is ${middleName1}
+_Last name is ${lastName1}
+`);
+
+//--Sorting a JS Array
+
+const students =[ 1,2,3,5,8,7,9]  //--> PRimitive type
+
+// students.sort()      //-> Ascending order
+
+// students.sort(function(a,b){ return b- a;});     //-> descending order
+
+students.reverse()
+
+console.log(students);
+
+const series = [                                   // --> Reference type
+    {id:001, name:"Money heist", year:2022 , netflix:true},
+    {id:002, name:"Breaking Bad", year:2019 , netflix:true},
+    {id:003, name:"Vikings", year:2016 , netflix:true},
+    {id:004, name:"Game of thrones", year:2016 , netflix:false},
+];
+
+series.sort((a,b) =>{
+// a < b => -1
+if(a.name < b.name) return -1
+
+//a > b => 1
+if(a.name > b.name) return 1
+
+//a === b => 0
+return 0;
+
+});
+
+console.log(series);
+
+
+//--Primitives: Testing a JS Array
+
+const queue_by_age = [25,19,35]             //Example-1
+
+let isAllowed = queue_by_age.every(function(value,index,array){  
+    return value >= 18;
+});
+
+console.log("isAllowed : ", isAllowed);
+
+const numbers1=[1,2,4,5,3,8]                //Example-2
+
+let isEven =numbers1.every(function(value){
+    return value % 2 ==0
+});
+
+console.log("isEven :" , isEven);
+
+
+//--Reference: Testing a JS Array
+
+
+const netflixSeries = [             // --> Reference type
+    {id:001, name:"Money heist", year:2022 , netflix:true},
+    {id:002, name:"Breaking Bad", year:2019 , netflix:true},
+    {id:003, name:"Vikings", year:2016 , netflix:true},
+    {id:004, name:"Game of thrones", year:2016 , netflix:false},
+];
+
+let watchAble = netflixSeries.every(function(value){
+return value.netflix == true;
+});
+
+
+let notWatchAble = netflixSeries.some(function(value){
+    return value.netflix == true;
+    });
+console.log("watchAble" , watchAble);
+
+console.log("notWatchAble", notWatchAble);
+
+
+//--Filtering  a JS Array
+
+const number08 =[1,2,5,4,7,8,1,2]                                   //-- Example - 1
+
+let isEvenNum =numbers1.filter(function(value){
+    return value % 2 == 0
+});
+
+let isOddNum =numbers1.filter(function(value){
+    return value % 2 == 1
+});
+
+console.log("isEvenNum" , isEvenNum);
+console.log("isOddNum" , isOddNum);
+
+const cartItems = [
+    {id:001, item :"iphone", cost:2563},
+    {id:002, item :"android", cost:12563},                            //-- Example - 2
+    {id:003, item :"windows", cost:2563},
+];
+
+let affortablePhones = cartItems.filter((value) => value.cost >= 10000); //return array[{Objects}]
+
+console.log(affortablePhones);
+
+
+//--Finding  a JS Array
+
+
+const cartItems1 = [
+    {id:001, item :"iphone", cost:2563},
+    {id:002, item :"android", cost:12563},                           
+    {id:003, item :"windows", cost:2563},
+];
+
+let affortablePhonesFind = cartItems.find((value) => value.cost >= 10000);  //Just return in object
+
+let affortablePhonesFindINDex = cartItems.findIndex((value) => value.cost >= 10000);  
+
+console.log(affortablePhonesFind); 
+
+console.log(affortablePhonesFindINDex);
