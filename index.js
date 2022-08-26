@@ -1048,3 +1048,136 @@ Follows the ASCII charcters.
      })
 
      console.log(result06);  
+
+
+
+// ----------------------------------Function Declaration & Function Expression--------------------------------------------\\
+
+// let no1 =256
+// let no2 =136
+
+//--Function Declaration             //----> First Way
+
+// function addNo(){
+//     let result = no1 + no2
+//     console.log(result);
+// }
+
+//-- Function Expression (Name Function Expression)      //----> Second Way
+
+// const addNo = function addNo() {
+//     let result =no1 + no2
+//     console.log(result);
+// }
+
+
+//Anonymous Function Expression                        //----> Third Way
+
+// const addno =() =>{
+//     let result = no1+no2
+//     console.log(result);
+// }
+
+
+// addno
+//Constructor Function
+// const addno = new function("console.log(no1 + no2)");
+
+
+// ----------------------------------JS Hoisting--------------------------------------------\\
+
+
+//--Function Declaration
+
+
+// printStringDecalaration()    // ----> Here, i can call the method any were before or after the declare method
+
+                             // ----->While execute default Function declaration will be top the code it can execute any were
+
+function printStringDecalaration(){
+    console.log("Print the Function Declaration String");
+}
+
+// printStringDecalaration();
+
+
+
+//-- Function Expression
+
+let printStringExpression = function (){
+    console.log("Print the Function Expression String");
+}
+
+printStringExpression() //--> Here,Function expression is not like function declaration, after declaring the variable only it can execute
+
+
+
+// ----------------------------------Immediately invoked function Expression (IIFE)--------------------------------------------\\
+
+let num10 = 2536;
+
+let num11 =1425;
+
+// (function sumNumbers() {                             //--> First way
+//     let result = num10 + num11;
+//     console.log(result);
+// })();
+
+
+// (function sumNumbers(num3, num4) {                             //--> Second way
+//     let result = num3 + num4;
+//     console.log(result);
+// })(num10,num11);
+
+
+// ( (num3, num4) => {                             //--> Third way
+//     let result = num3 + num4;
+//     console.log(result);
+// })(num10,num11);
+
+(() => {                                                       //--> Forth way
+    let num1 =2536;
+    let num2 =1236;
+
+    let result = num1 + num2;
+ ( function displayNuber() {
+    console.log("Result: ", result);
+  })();
+})();
+
+
+// ---------------------------------- Function Arguments --------------------------------------------\\
+
+function sumExpense() {
+    let total = 0;
+    for( let value of arguments){
+        total += value;
+    }
+
+    return total;
+}
+
+let result04 = sumExpense(25,1,12,1,45,163,12,0) ;
+
+console.log(result04);
+
+
+// ---------------------------------- Rest Operators --------------------------------------------\\
+
+
+// function sumExpense1(...expenses) {                            //--> First way
+//     return expenses.reduce((a,b)=> a + b);
+// }
+
+// let result03 =sumExpense1(20,15,10,14,16,10);
+// console.log(result03);
+
+
+function sumExpense1(loan,...expenses) {                            //--> Second way
+    let total = expenses.reduce((a,b)=> a + b);
+
+    return total - loan;
+}
+
+let result03 =sumExpense1(100,20,15,10,14,16,10);
+console.log(result03);
