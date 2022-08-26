@@ -976,3 +976,75 @@ let final4 = products.sort((a,b)=> {
   .map((val) => val.items+ " " + val.cost);
 
   console.log(final4);
+
+
+   // ---------------------------------- JS Array - REDUCE() Methods --------------------------------------------\\
+
+   const donations =[2,1,3,5,4,2,5,11]   //Primitive type
+
+   let totalDonations = donations.reduce((previousValue, currentValue )=>  previousValue +currentValue)
+
+   console.log("totalDonations" , totalDonations);
+
+
+   const sumNumber =[                     //reference type
+    {cost:50},
+    {cost:50},
+    {cost:50},
+    {cost:50},
+    {cost:50},
+   ]
+
+//    function addCost (accumulator, currentVal) {
+//      return accumulator + currentVal.cost
+//    }
+
+   const arrowCost =(accumulator, currentVal) => accumulator + currentVal.cost
+
+//    let totalCost = sumNumber.reduce(addCost,0)
+
+let totalCost = sumNumber.reduce(arrowCost,0)
+
+   console.log(totalCost);
+
+
+
+
+     // ----------------------------------D/B sort(),filter(),map(),reduce() --------------------------------------------\\
+
+     const number06 =[34,4,65,12,78]
+
+     //--sort()
+     let finalResult = number06.sort()
+/*
+Follows the ASCII charcters.
+*/
+     console.log('Sort Method' ,finalResult);  //O/P -> [12, 34, 4, 65, 78] --It is not a correct sort
+
+
+     //--find()
+
+     let result09 = number06.find((value) =>{ return value >50 }); 
+
+     console.log(result09);            //O/P -> Only 65 beacuse find() will find only one value after the given condition
+
+     //--filter()
+
+     let result08 = number06.filter((value) =>{ return value >50 }); 
+
+     console.log(result08);    //O/P -> [65, 78] because filter() will print every value after the conditions
+
+     //map()
+
+     let result07 = number06.map((value) =>{ return value >50 }); 
+
+     console.log(result07);    //O/P ->  [false, false, false, true, true] return boolean
+
+
+     //reduce()
+
+     let result06 = number06.reduce((acc,value ) => {
+        return acc +value
+     })
+
+     console.log(result06);  
